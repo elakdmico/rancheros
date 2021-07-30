@@ -1,12 +1,14 @@
 #cloud-config
-hostname : docker
+hostname: docker
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8HuQ/UZthFEe3ESwKkmLaXmPa3GZ/nW/9Qwp9wwwlTfcN20p2gHNGnNyg1b2qcnybstRdWWLmAb8YZ7fx4aJKtDwqcFiegL+Z+XT9TzjwC15ix80Nmq4Wt8HDpJoAqJAz7Rc4uwnvtMTvJWRgLkuFso2Ff1wPwALerC/K/7ybqoqCuXRVs6gUfxBeS+y8OWYROpCFReC/Jv/P5yR/5AUNbtdvFi+m5644fHC40UBDF9S66tmbE3a4sHlaUSY+HPJCLfPHKJrMCkRxdPcuxAfafxtNshOjAes1JLaSfbVk6sE1W8jkBfiqI7s7CE09rWtMMu9AUj3fg7hgdgiUpWdBgVMt1zSAmltQtXjtMM8eQ/i3eq2m3aNsgVsQ25utlqlBF2syanMHcy9RITb4Eqxu0e1v/7j93oKpTG5rpB0y7CNJ76+QkKkjbWn39W22b5xQpprtWkyF+G7mK3uO47JBfKdUsDFRAYEeB3IMjI3jqBgC+Z4BQMNRQ5G3e0rK5pk= matias@elakdmico
 rancher:
   network:
     interfaces:
+      eth*:
+        dhcp: false
       eth0:
-        address: 192.168.1.11/255.255.255.0
+        address: 192.168.1.11/24
         gateway: 192.168.1.1
     dns:
       nameservers:
